@@ -19,4 +19,6 @@ router.get('/profile/edit', isLoggedIn, userController.profileEditPage)
 
 router.post('/profile/edit', userController.profileEdit)
 
+router.post('/logout', userController.logout)
+
 module.exports = router

@@ -8,6 +8,7 @@
     <title>Surf Nomadas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" type="image/ico" href="./../../images/favicon.ico" sizes="any">
   </head>
 
   <body>
@@ -15,26 +16,25 @@
       <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
 
         <div class="container-fluid"></div>
-          <img class="logo-image" src="./../../images/surf-nomada-logo-black.png" alt="(Error loading image)"/>  
+          <a href="/"><img class="logo-image" src="./../../images/surf-nomada-logo-black2.png" alt="(Error loading image)"/></a>
+
           {{#if currentUser}}
           
-        
-          <a class="nav-item nav-link" href="/users/profile">Profile</a>
+          <div class="container-right">
+          <a class="nav-item nav-link" href="/users/profile"><img class="text-image" src="./../../images/account-vector.png" alt="(Error loading image)"/> {{currentUser.username}}      </a>
           <form id="logout-form" action="/users/logout" method="POST">
               <button>Logout</button>
           </form>
+          </div>
 
           {{else}}
-
+        <div class="container-right">
           <a class="nav-item nav-link" href="/users/login">Login</a>
           <a class="nav-item nav-link" href="/users/signup">Create a new user</a>
+        </div>
           {{/if}}
         </div>
       </nav>
-
-          {{#if currentUser}}
-          <span>Hola {{currentUser.username}}!</span>
-          {{/if}}
 
     </header>
 

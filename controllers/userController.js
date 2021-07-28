@@ -67,8 +67,9 @@ exports.login = async (req, res) => {
             let wrongPass = await res.render("users/login", {msg: "Password is incorrect."})
             return wrongPass
         }
-        req.session.currentUser = await getUser
-        res.redirect("/users/profile")
+        req.session.currentUser = getUser
+        console.log("logged in")
+        return res.redirect("/users/profile")
     } catch(e) {
         console.log(e)
     } 
@@ -91,4 +92,15 @@ exports.profileEdit = async (req, res) => {
     } catch (e) {
         console.log(e)
     }
+}
+
+exports.logout = async (req, res) => {
+    try {
+        req.session.destroy()
+        console.log("User logged out")
+        return res.redirect("/")
+    } catch (e) {
+        console.log(e)
+    }
+    
 }

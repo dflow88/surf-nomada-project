@@ -6,6 +6,10 @@
     height: 3rem
 }
 
+.container-right {
+    display: flex
+}
+
 .index-body {
     background-image: url("../images/background.jpeg");
     background-repeat: no-repeat;
@@ -18,12 +22,19 @@
     flex-direction: column;
     align-content: space-between;
     justify-content: space-around;
-    padding: 2rem
+    padding: 2rem;
 }
 
+.container-index {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.199);
+    max-width: 650px
+}
 
 
 h1, h2 {
     color: white;
-    margin-left: 2rem
 }
