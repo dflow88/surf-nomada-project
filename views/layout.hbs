@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Surf Nomadas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+        <div class="container-fluid"></div>
+          <img class="logo-image" src="./../../images/surf-nomada-logo-black.png" alt="(Error loading image)"/>  
+          {{#if currentUser}}
+          
+        
+          <a class="nav-item nav-link" href="/users/profile">Profile</a>
+          <form id="logout-form" action="/users/logout" method="POST">
+              <button>Logout</button>
+          </form>
+
+          {{else}}
+
+          <a class="nav-item nav-link" href="/users/login">Login</a>
+          <a class="nav-item nav-link" href="/users/signup">Create a new user</a>
+          {{/if}}
+        </div>
+      </nav>
+
+          {{#if currentUser}}
+          <span>Hola {{currentUser.username}}!</span>
+          {{/if}}
+
+    </header>
+
+    {{{body}}}
+
+
+<footer>
+    <hr/>
+    <p>Hecho con <img class="text-image" src="./../../images/heart.png" alt="(Error loading image)"/> en Puerto Escondido.</p>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+
+</html>
+

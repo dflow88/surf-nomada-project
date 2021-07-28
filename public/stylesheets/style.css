@@ -1,0 +1,29 @@
+.text-image {
+    height: 1rem
+}
+
+.logo-image {
+    height: 3rem
+}
+
+.index-body {
+    background-image: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+    background-position: bottom;
+    background-size: cover;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-around;
+    padding: 2rem
+}
+
+
+
+h1, h2 {
+    color: white;
+    margin-left: 2rem
+}

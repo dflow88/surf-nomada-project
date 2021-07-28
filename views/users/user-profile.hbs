@@ -1,0 +1,15 @@
+
+{{#if currentUser}}
+  <h2>Welcome, {{ currentUser.username }}!</h2>
+  <p>This is your profile page my friend!</p>
+  <button>
+    <a href="/users/profile">Reload the page</a>
+  </button>
+    <a href="/users/profile/edit">Complete your profile for a better experience!</a>
+  
+
+
+
+{{else}}
+  <p>You are not logged in, sorry!</p>
+{{/if}}

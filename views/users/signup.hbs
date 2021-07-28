@@ -1,0 +1,20 @@
+
+  <h2>Create your account</h2>
+
+  <form action="/users/signup" method="POST">
+    <label> Username
+      <input type="text" name="username"/>
+    </label>
+    <label> Email
+      <input type="email" name="email"/>
+    </label>
+    <label> Password <p class="parentesis">(Must contain 6 characters, including 1 number, 1 lowercase and 1 uppercase)</p>
+      <input type="password" name="password"/>
+    </label>
+    <button type="submit">Create account</button>
+
+    {{#if msg }}  
+      <p class="error">{{msg}}</p>
+    {{/if}}
+
+  </form>
