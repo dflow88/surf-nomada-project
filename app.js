@@ -56,6 +56,8 @@ app.use('/users', require('./routes/user.routes'))
 
 app.use('/cities', require('./routes/city.routes'))
 
+app.use('/hotels', require('./routes/hotel.routes'))
+
 
 app.use(cookieParser());
 

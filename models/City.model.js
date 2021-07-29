@@ -18,7 +18,7 @@ const citySchema = new Schema(
         beachDescription: String,
         beachImages: [{ type: String }],
     }],
-    hotels: []      //[{ type: Schema.Types.ObjectId, ref: "Hotel" }],
+    hotels:[{ type: Schema.Types.ObjectId, ref: "Hotel" }],
   },
   {
     timestamps: true

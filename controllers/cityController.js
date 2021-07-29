@@ -52,6 +52,7 @@ exports.createCity = (req, res) => {
     const { cityName, country, description } = req.body
     City.create({ cityName, country, description })
         .then((cityCreated) => {
+            
             // City.findByIdAndUpdate(cityCreated._id, {hotels: hotels})
         })
         .then(() => {
