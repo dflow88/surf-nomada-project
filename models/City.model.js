@@ -4,10 +4,13 @@ const citySchema = new Schema(
   {
     cityName: {
         type: String,
-        required: [true, 'Name'],
+        sparse: true,
         unique: true
     },
-    country: String,
+    country: {
+        type: String,
+        sparse: true
+    },
     description: String,
     images: [{ type: String }],
     beaches: [{
@@ -15,7 +18,7 @@ const citySchema = new Schema(
         beachDescription: String,
         beachImages: [{ type: String }],
     }],
-    hotels: [{ type: Schema.Types.ObjectId, ref: "Hotel" }],
+    hotels: []      //[{ type: Schema.Types.ObjectId, ref: "Hotel" }],
   },
   {
     timestamps: true

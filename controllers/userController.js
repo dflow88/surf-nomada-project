@@ -77,8 +77,14 @@ exports.profileEditPage = async (req, res) => {
 
 exports.profileEdit = async (req, res) => {
     try {
-        const { name, lastName, stance, country, pictureUrl } = await req.body
+        let { name, lastName, stance, country, pictureUrl } = await req.body
         const userId = await req.session.currentUser._id
+        if (stance == null) {
+            stance = req.session.currentUser.stance
+        }
+        if (country == null) {
+            country = req.session.currentUser.country
+        }
         await User.findByIdAndUpdate(userId, { name: name, lastName: lastName, stance: stance, country: country, pictureUrl: pictureUrl })
         const updatedUser = await User.findById(userId)
             currentUser = updatedUser
