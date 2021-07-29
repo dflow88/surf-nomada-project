@@ -49,31 +49,26 @@ exports.loginPage = async (req, res) => {
     res.render("users/login")
 }
 
-exports.login = async (req, res) => {
+exports.login = (req, res) => {
 
-    try {
-        const { username, password } = await req.body
+        const { username, password } =  req.body
         if (!username || !password) {
-            let missingField = await res.render("users/login", {msg: "Please enter both username and password."})
-            return missingField
+            return res.render("users/login", {msg: "Please enter both username and password."})
         }
-        const getUser = await User.findOne({username})
-        if (!getUser){
-            let notFound = await res.render("users/login", {msg: "Username does not exist."})
-            return notFound
+        User.findOne({username})
+        .then((foundUser) => {
+        if (!foundUser){
+            return res.render("users/login", {msg: "Username does not exist."})
         }
-        const verify = await bcryptjs.compareSync(password, getUser.password)
+        const verify = bcryptjs.compareSync(password, foundUser.password)
         if(!verify) {
-            let wrongPass = await res.render("users/login", {msg: "Password is incorrect."})
-            return wrongPass
+            return res.render("users/login", {msg: "Password is incorrect."})
         }
-        req.session.currentUser = getUser
+        req.session.currentUser = foundUser
         console.log("logged in")
         return res.redirect("/users/profile")
-    } catch(e) {
-        console.log(e)
-    } 
-
+        })
+        .catch((e) => console.log(e))
 }
 
 exports.profileEditPage = async (req, res) => {
@@ -94,13 +89,11 @@ exports.profileEdit = async (req, res) => {
     }
 }
 
-exports.logout = async (req, res) => {
-    try {
-        req.session.destroy()
-        console.log("User logged out")
-        return res.redirect("/")
-    } catch (e) {
-        console.log(e)
-    }
-    
+exports.logout = (req, res) => {
+    req.session.destroy(err => {
+        if(err) {
+            console.log(err)
+        }
+    res.redirect("/")
+    })
 }

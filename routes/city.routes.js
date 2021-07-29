@@ -7,9 +7,9 @@ const { isLoggedIn, isLoggedOut } = require('./../middlewares/route-guard')
 
 router.get('/', cityController.cityList)
 
-router.get('/create', cityController.createCity)
+router.get('/create', cityController.getCreateCity)
 
-// router.post('/cities', cityController.XXXXXXX)
+router.post('/create', cityController.createCity)
 
 
 

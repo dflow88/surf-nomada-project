@@ -26,7 +26,8 @@ const userSchema = new Schema(
     stance: String,
     // wavePreference: String,
     country: String,
-    pictureUrl: String
+    pictureUrl: String,
+    favoriteCities: [{ type: Schema.Types.ObjectId, ref: "City" }],
   },
   {
     timestamps: true

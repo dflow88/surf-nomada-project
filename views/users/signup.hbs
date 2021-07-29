@@ -1,20 +1,39 @@
-
+<div class="container">
   <h2>Create your account</h2>
-
-  <form action="/users/signup" method="POST">
-    <label> Username
-      <input type="text" name="username"/>
-    </label>
-    <label> Email
-      <input type="email" name="email"/>
-    </label>
-    <label> Password <p class="parentesis">(Must contain 6 characters, including 1 number, 1 lowercase and 1 uppercase)</p>
-      <input type="password" name="password"/>
-    </label>
-    <button type="submit">Create account</button>
-
+<br/>
+<br/>
+<form action="/users/signup" method="POST">
+  <div class="form-group">
+      <div class="mb-3 row">
+          <label for="username" class="col-sm-1 col-form-label">Username</label>
+          <div class="col-sm-3">
+              <input class="form-control" type="text" id="username" name="username"/>
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="email" class="col-sm-1 col-form-label">Email</label>
+          <div class="col-sm-3">
+              <input class="form-control" type="email" id="email" name="email"/>
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="password" class="col-sm-1 col-form-label">Password</label>  
+          <div class="col-sm-3">
+              <input class="form-control" type="password" id="password" name="password"/>
+              <small class="form-text text-muted">Must contain 6 characters, including 1 number, 1 lowercase and 1 uppercase</small>
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="button" class="col-sm-1 col-form-label"></label>  
+          <div class="col-sm-3">
+            <button id="button" type="submit">Create account</button>
+          </div>
+      </div>
+  </div>
     {{#if msg }}  
       <p class="error">{{msg}}</p>
     {{/if}}
 
   </form>
+  <br/><br/><br/><br/><br/>
+  </div>

@@ -1,27 +1,40 @@
- 
+ <div class="container">
   <h2>Edit your profile</h2>
- 
+ <br/>
+<br/>
+
 
  {{#if currentUser}}
 
-  <form action="/users/profile/edit" method="POST">
-    <label> Name
-        <input type="text" name="name" value="{{currentUser.name}}" />
-    </label>
-    <br/>
-    <label>Last Name
-        <input type="text" name="lastName" value="{{currentUser.lastName}}"/>
-    </label>
-    <br/>
-    <label>Stance
-        <select type="text" name="stance" size="1" value="{{currentUser.stance}}">
-            <option value="Regular">Regular</option>
-            <option value="Goofy">Goofy</option>
-        </select>
-    </label>
-    <br/>
-    <label>Country
-        <select type="text" name="country" size="1" value="{{currentUser.country}}">
+
+<form action="/users/profile/edit" method="POST">
+<div class="form-group">
+    <div class="mb-3 row">
+        <label for="name" class="col-sm-2 col-form-label"> Name </label>
+        <div class="col-sm-3">
+            <input id="name" class="form-control" type="text" name="name" value="{{currentUser.name}}" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="lastName" class="col-sm-2 col-form-label">Last name </label>
+        <div class="col-sm-3">
+            <input id="lastName" class="form-control" type="text" name="lastName" value="{{currentUser.lastName}}"/>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="stance" class="col-sm-2 col-form-label">Stance </label>
+        <div class="col-sm-3">
+            <select id="stance" class="form-control" type="text" name="stance" size="1" value="{{currentUser.stance}}"/>
+              <option value="Regular">Regular</option>
+              <option value="Goofy">Goofy</option>
+            </select>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="country" class="col-sm-2 col-form-label">Country </label>
+        <div class="col-sm-3">
+            <select id="country" class="form-control" type="text" name="country" size="1" value="{{currentUser.country}}"/>
+                <option selected="true" disabled="disabled">Change country</option>
                 <option value="Afganistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -161,7 +174,7 @@
                 <option value="Mauritania">Mauritania</option>
                 <option value="Mauritius">Mauritius</option>
                 <option value="Mayotte">Mayotte</option>
-                <option value="Mexico" selected>Mexico</option>
+                <option value="Mexico">Mexico</option>
                 <option value="Midway Islands">Midway Islands</option>
                 <option value="Moldova">Moldova</option>
                 <option value="Monaco">Monaco</option>
@@ -269,14 +282,23 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
         </select>
-    </label>
-    <br/>
-    <label>Picture URL
-        <input type="text" name="pictureUrl" value="{{currentUser.pictureUrl}}"/>
-    </label>
-    ***UPLOAD IMAGE WITH BUTTON LATER***
-    <br/>
-    <button type="submit">Update profile</button>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="pictureUrl" class="col-sm-2 col-form-label">Picture URL </label>
+        <div class="col-sm-3">
+            <input id="pictureUrl" class="form-control" type="text" name="pictureUrl" value="{{currentUser.pictureUrl}}"/>
+        </div>
+    </div>
+        ***UPLOAD IMAGE WITH BUTTON LATER***
+      <div class="mb-3 row">
+          <label for="button" class="col-sm-1 col-form-label"></label>  
+          <div class="col-sm-3">
+            <button id="button" type="submit">Update profile</button>
+          </div>
+      </div>
+
+</div>
     
     {{else}}
   <p>You are not logged in, sorry!</p>
@@ -286,3 +308,6 @@
       <p class="confirmation">{{ msg }}</p>
     {{/if}}
   </form>
+
+  <br/><br/><br/><br/><br/> 
+   </div>

@@ -11,10 +11,10 @@
     <link rel="icon" type="image/ico" href="./../../images/favicon.ico" sizes="any">
   </head>
 
+
   <body>
     <header>
       <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-
         <div class="container-fluid"></div>
           <a href="/"><img class="logo-image" src="./../../images/surf-nomada-logo-black2.png" alt="(Error loading image)"/></a>
 
@@ -28,24 +28,25 @@
           </div>
 
           {{else}}
-        <div class="container-right">
-          <a class="nav-item nav-link" href="/users/login">Login</a>
-          <a class="nav-item nav-link" href="/users/signup">Create a new user</a>
-        </div>
+          <div class="container-right">
+            <a class="nav-item nav-link" href="/users/login"><img class="text-image" src="./../../images/account-vector.png" alt="(Error loading image)"/> Login</a>
+            <a class="nav-item nav-link" href="/users/signup">Create a new user</a>
+          </div>
           {{/if}}
         </div>
       </nav>
 
     </header>
 
+
     {{{body}}}
 
-
+<div class="container">
 <footer>
     <hr/>
     <p>Hecho con <img class="text-image" src="./../../images/heart.png" alt="(Error loading image)"/> en Puerto Escondido.</p>
 </footer>
-
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
