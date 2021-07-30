@@ -1,0 +1,47 @@
+<div class="container">
+
+<h2>Surf towns and cities</h2>
+
+<!-- Carousel wrapper -->
+<div
+  id="carouselMultiItemExample"
+  class="carousel slide carousel-dark text-center"
+  data-mdb-ride="carousel"
+>
+  <!-- Inner -->
+    <!-- Single item -->
+    <div class="container2">
+    {{#each citiesFound}}
+      <div class="container">
+          <div class="row-lg-4">
+            <div style="width: 300px" class="card">
+                <figure>
+                <img style="height: 200px; width: 100%"
+                src="{{this.imageUrl}}"
+                class="card-img-top"
+                alt="..."
+              />
+                </figure>
+              <div class="card-body">
+                <h5 class="card-title">{{this.cityName}}</h5>
+                <a href="/hotels/{{this.destBookingId}}" class="btn btn-primary">View hotels</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    {{/each}}
+    </div>
+  <!-- Inner -->
+  </div>
+<!-- Carousel wrapper -->
+
+    {{!-- <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+        {{#each citiesFound}}
+                <figure>
+                <img style="width: 200px" src="{{this.imageUrl}}" />
+                </figure>
+                {{this.cityName}}
+                <br/><br/>
+        {{/each}}
+    <div></div>
+</div> --}}

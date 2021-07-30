@@ -5,7 +5,7 @@ const hotelController = require('./../controllers/hotelController')
 
 const { isLoggedIn, isLoggedOut } = require('./../middlewares/route-guard')
 
-router.get('/', hotelController.hotelList)
+router.get('/:bookingId', isLoggedIn, hotelController.hotelList)
 
 // router.get('/create', hotelController.getCreateHotel)
 

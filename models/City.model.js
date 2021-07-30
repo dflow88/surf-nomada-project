@@ -7,17 +7,16 @@ const citySchema = new Schema(
         sparse: true,
         unique: true
     },
+    destBookingId: String,
     country: {
         type: String,
         sparse: true
     },
     description: String,
+    imageUrl: String,
     images: [{ type: String }],
-    beaches: [{
-        beachName: String,
-        beachDescription: String,
-        beachImages: [{ type: String }],
-    }],
+    beaches: [{ type: Schema.Types.ObjectId, ref: "Beach" }],
+
     hotels:[{ type: Schema.Types.ObjectId, ref: "Hotel" }],
   },
   {

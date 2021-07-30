@@ -1,7 +1,14 @@
 
+const City = require('./../models/City.model')
+
 //CONTROLADORES
 exports.startHome = async (req, res) => {
-    res.render("index")
+    City.find({})
+    .then((citiesFound)=> {
+
+        res.render("index", {citiesFound})
+    })
+    .catch((e) => console.log(e))
 }
 
 

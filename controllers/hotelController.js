@@ -1,13 +1,9 @@
 const Hotel = require('./../models/Hotel.model')
+const City = require('./../models/City.model')
 const mongoose = require("mongoose")
-
 const { isLoggedIn, isLoggedOut } = require('./../middlewares/route-guard')
-
-var unirest = require("unirest");
-
-
-
-
+const unirest = require("unirest");
+// const { findById } = require('./../models/City.model');
 // exports.hotelList = async (req, res) => {
 //     Hotel.find({})
 //     .then((hotelsFound)=> {
@@ -15,40 +11,36 @@ var unirest = require("unirest");
 //     })
 //     .catch((e) => console.log(e))
 // }
-
 exports.hotelList = async (req, res) => {
-
-    let hotels
-
-var req = unirest("GET", "https://booking-com.p.rapidapi.com/v1/hotels/search");
-
-req.query({
-    "units": "metric",
-    "order_by": "popularity",
-    "checkin_date": "2021-11-25",
-    "filter_by_currency": "USD",
-    "adults_number": "2",
-    "checkout_date": "2021-11-26",
-    "dest_id": "-1690388",
-    "locale": "en-gb",
-    "dest_type": "city",
-    "room_number": "1",
-});
-
-req.headers({
-    "x-rapidapi-key": "3aa36b1cebmsh02fd7f4af4d8813p1d8fc7jsn2b9681bfd475",
-    "x-rapidapi-host": "booking-com.p.rapidapi.com",
-    "useQueryString": true
-});
-
-req.end(function (res) {
-    if (res.error) throw new Error(res.error);
-    hotels = res.body.result[0];
-    console.log(hotels)
-    return hotels
-})
+    
+            const dest = req.params.bookingId
+            const reqUni = unirest("GET", `https://booking-com.p.rapidapi.com/v1/hotels/search`);
+            reqUni.query({
+                "units": "metric",
+                "order_by": "popularity",
+                "checkin_date": "2021-11-25",
+                "filter_by_currency": "USD",
+                "adults_number": "2",
+                "checkout_date": "2021-11-26",
+                "dest_id": dest,
+                "locale": "en-gb",
+                "dest_type": "city",
+                "room_number": "1",
+            });
+            reqUni.headers({
+                "x-rapidapi-key": process.env.X_RAPIDAPI_KEY,
+                "x-rapidapi-host": "booking-com.p.rapidapi.com",
+                "useQueryString": true
+            });
+            // EJECUTAR LA BÚSQUEDA API
+            reqUni.end(function (response) {
+                if (response.error) throw new Error(response.error);
+                hotels = response.body.result;
+                res.render("partials/hotels", {
+                    hotels: hotels
+                })
+                return hotels
+            })
 }
-
-console.log(hotels)
-res.render('hotels/hotels')
-}
+// console.log(hotels)
+// res.render('hotels/hotels')

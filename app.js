@@ -35,6 +35,7 @@ require("./config/session.config")(app)
 app.set("view engine", 'hbs')
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+hbs.registerPartials(__dirname + "/views/partials");
 
 // BODY PARSER
 app.use(bodyParser.urlencoded({ extended: true }))

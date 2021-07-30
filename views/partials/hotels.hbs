@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2>List of hotels</h2>
+    <br/><br/>
+
+    <!-- Carousel wrapper -->
+    <div
+    id="carouselMultiItemExample"
+    class="carousel slide carousel-dark text-center"
+    data-mdb-ride="carousel"
+    >
+    <!-- Inner -->
+        <!-- Single item -->
+        <div class="container2">
+            {{#each hotels}}
+            <div class="container">
+                <div class="row-lg-4">
+                    <div style="width: 300px" class="card">
+                        <figure>
+                            <img style="height: 200px; width: 100%"
+                            src="{{this.max_photo_url}}"
+                            class="card-img-top"
+                            alt="..."
+                            />
+                        </figure>
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.hotel_name}}</h5>
+                            <a target="_blank" href="{{this.url}}">See details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+
+
+</div>

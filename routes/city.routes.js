@@ -11,7 +11,6 @@ router.get('/create', cityController.getCreateCity)
 
 router.post('/create', cityController.createCity)
 
-
-
+router.get('/', cityController.viewCityHotels)
 
 module.exports = router
