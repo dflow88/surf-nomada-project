@@ -1,15 +1,46 @@
-
+<div class="container">
 {{#if currentUser}}
-  <h2>Welcome, {{ currentUser.username }}!</h2>
-  <p>This is your profile page my friend!</p>
-  <button>
-    <a href="/users/profile">Reload the page</a>
-  </button>
-    <a href="/users/profile/edit">Complete your profile for a better experience!</a>
-  
+  <h2>Welcome,
+    {{#if currentUser.name}}
+    {{currentUser.name}} {{currentUser.lastName}}!
+    {{/if}}
+  </h2>
+  <h4 class="grey-text">(@{{ currentUser.username }})</h4>
+    
+  <form class="container-right">
+
+    <div class="form-group">
+        <div class="mb-1 row">
+            <label class="col-sm-3 col-form-label">Email: </label>
+            <div class="col-sm-4">
+            <label class="col-sm-3 col-form-label">{{currentUser.email}} </label>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label class="col-sm-3 col-form-label">Stance: </label>
+            <div class="col-sm-4">
+            <label class="col-sm-3 col-form-label">{{currentUser.stance}} </label>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label class="col-sm-3 col-form-label">Country: </label>
+            <div class="col-sm-4">
+            <label class="col-sm-3 col-form-label">{{currentUser.country}} </label>
+            </div>
+        </div>
+          <button>
+            <a href="/users/profile/edit">Update profile</a>
+          </button>
+    </div>
+    <div class="float-right">
+        <img class="profile-image" src="{{currentUser.pictureUrl}}"/>
+    </div>
+  </form>
 
 
 
 {{else}}
   <p>You are not logged in, sorry!</p>
 {{/if}}
+
+</div>
